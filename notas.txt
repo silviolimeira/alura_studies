@@ -2,4 +2,7 @@
 Criando o projeto:
 $ npx create-react-app --template typescript alura-studies
 
+Iniciando o projeto
+$ cd alura-studies
+$ npm start
 
