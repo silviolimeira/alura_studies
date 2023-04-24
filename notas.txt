@@ -1,0 +1,5 @@
+
+Criando o projeto:
+$ npx create-react-app --template typescript alura-studies
+
+
