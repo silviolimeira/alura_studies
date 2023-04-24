@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Botao from '../components/Botao';
+import Botao from '../Botao';
 
 import style from './Formulario.module.scss';
 
