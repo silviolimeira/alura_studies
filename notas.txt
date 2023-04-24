@@ -6,3 +6,8 @@ Iniciando o projeto
 $ cd alura-studies
 $ npm start
 
+Instalado o Sass:
+$ npm install --save-dev sass
+
+Recursos:
+https://github.com/lfrprazeres/alura-studies
