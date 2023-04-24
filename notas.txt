@@ -9,5 +9,11 @@ $ npm start
 Instalado o Sass:
 $ npm install --save-dev sass
 
+Instalando o css-modules:
+$ 
+
+
+
+
 Recursos:
 https://github.com/lfrprazeres/alura-studies
