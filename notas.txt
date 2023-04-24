@@ -1,4 +1,10 @@
 
+Environment Setup:
+$ export PATH=/d/projeto-novo/nvm-noinstall:/d/nodejs-nvm/:$PATH
+
+Install nvm Node:
+$ nvm install 14.17.4
+
 Criando o projeto:
 $ npx create-react-app --template typescript alura-studies
 
@@ -10,7 +16,15 @@ Instalado o Sass:
 $ npm install --save-dev sass
 
 Instalando o css-modules:
-$ 
+$ npm install -D typescript-plugin-css-modules
+
+Adicionar tsconfig.json:
+{
+  "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  }
+}
+
 
 
 
