@@ -1,0 +1,53 @@
+Docker + ReactJS tutorial: Development to Production workflow 
++ multi-stage builds + docker compose
+https://www.youtube.com/watch?v=3xDAU5cvi5E&t=231s
+
+Create an React app:
+$ npx create-react-app .
+
+Start the app
+$ npm start 
+
+Removendo imagem:
+$ docker image rm ID_IMAGE
+
+Criando a imagem:
+$ docker build -f Dockerfile.dev -t react-image .
+$ docker build -f Dockerfile.prod -t react-image-prod .
+
+Executando a imagem com bind mounts (PRODUÇÃO):
+$ docker run --env-file ./.env -d -p 8080:80 --name react-app-prod react-image-prod
+
+$ docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build
+
+$ docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build
+$ docker-compose -f docker-compose.yml -f docker-compose-prod.yml down
+
+Executando a imagem com bind mounts:
+$ docker run -v $(pwd)/src:/app/src:ro -d -p 3000:3000 --name react-app react-image 
+$ docker run -e CHOKIDAR_USEPOLLING=true -v $(pwd)/src:/app/src:ro -d -p 3000:3000 --name react-app react-image 
+
+$ docker run -e CHOKIDAR_USEPOLLING=true -v $(pwd)/src:/app/src:ro -e REACT_APP_NAME=Cesar -d -p 3000:3000 --name react-app react-image 
+
+$ docker run --env-file ./.env -v $(pwd)/src:/app/src:ro -d -p 3000:3000 --name react-app react-image 
+
+$ docker run -it --env-file ./.env -v $(pwd)/src:/app/src:ro -d -p 3000:3000 --name react-app react-image 
+
+$ docker ps
+
+
+
+Removendo container:
+$ docker rm react-app -f
+
+Access the bash of the docker container:
+$ docker exec -it react-app bash
+
+
+Usando o docker-compose.yml:
+$ docker-compose up -d --build
+
+$ docker-compose down
+
+Multiple Stages Build:
+docker build --target build -f Dockerfile.prod -t multi-stage-example .
