@@ -1,13 +1,22 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 
 import style from './Botao.module.scss';
 
-const Botao = (props: PropsWithChildren) => {
-    return (
-        <button className={style.botao}>
-            {props.children}
-        </button>
-    )
+class Botao extends React.Component<{
+    type?: "button" | "submit" | "reset" | undefined
+    texto: string
+}>
+{
+    render() {
+        const { type = "button", texto } = this.props;
+        return (
+            <button type={type} className={style.Botao}>
+                {texto}
+            </button>
+        )
+
+    }
 }
+
 
 export default Botao;
